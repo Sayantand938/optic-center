@@ -5,6 +5,23 @@ export interface MenuItem {
     action: () => void;
 }
 
+export interface EyePrescription {
+    sph: string;      // Sphere
+    cyl: string;      // Cylinder
+    axis: string;     // Axis
+    va: string;       // Visual Acuity
+    d: string;        // Distance
+    n: string;        // Near
+    add: string;      // Addition
+    cl: string;       // Contact Lens
+}
+
+export interface PDMeasurements {
+    right: string;    // PD Right Eye
+    left: string;     // PD Left Eye
+    total: string;    // Total PD
+}
+
 export interface Order {
     id: string;
     orderDetails: {
@@ -23,6 +40,12 @@ export interface Order {
         eyeCheckupDate: string;
         doctorName: string;
         hospitalName: string;
+    };
+    prescription: {
+        rightEye: EyePrescription;
+        leftEye: EyePrescription;
+        pd: PDMeasurements;
+        notes?: string;
     };
     createdAt: string;
 }

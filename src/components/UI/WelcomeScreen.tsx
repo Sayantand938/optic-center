@@ -10,14 +10,14 @@ export const WelcomeScreen: React.FC = () => {
                     <Layers className="w-14 h-14 text-blue-500" />
                 </div>
 
-                {/* Welcome Text with JetBrains Mono */}
+                {/* Welcome Text */}
                 <h2 className="text-xl font-semibold text-gray-800 mb-2 tracking-tight">Welcome to Optical Store</h2>
                 <p className="text-gray-500 text-sm mb-6">Your complete inventory management solution</p>
 
-                {/* Subtle Hint */}
+                {/* Subtle Hint - Removed font-mono class since JetBrains Mono is global */}
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm">
                     <Menu className="w-4 h-4 text-gray-400" />
-                    <span className="text-xs text-gray-500 font-mono">Tap menu to get started</span>
+                    <span className="text-xs text-gray-500">Tap menu to get started</span>
                 </div>
             </div>
         </main>

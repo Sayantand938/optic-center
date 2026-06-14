@@ -26,6 +26,34 @@ const loadDemoData = () => {
                     doctorName: 'Dr. Sarah Smith',
                     hospitalName: 'City Eye Hospital'
                 },
+                prescription: {
+                    rightEye: {
+                        sph: '-2.00',
+                        cyl: '-0.50',
+                        axis: '180',
+                        va: '6/6',
+                        d: '-2.00',
+                        n: '-1.50',
+                        add: '+2.00',
+                        cl: '-2.00'
+                    },
+                    leftEye: {
+                        sph: '-1.75',
+                        cyl: '-0.25',
+                        axis: '175',
+                        va: '6/6',
+                        d: '-1.75',
+                        n: '-1.25',
+                        add: '+2.00',
+                        cl: '-1.75'
+                    },
+                    pd: {
+                        right: '32.0',
+                        left: '32.0',
+                        total: '64.0'
+                    },
+                    notes: 'Patient prefers progressive lenses'
+                },
                 createdAt: new Date().toISOString()
             },
             {
@@ -46,6 +74,34 @@ const loadDemoData = () => {
                     eyeCheckupDate: new Date().toISOString().split('T')[0],
                     doctorName: 'Dr. Michael Brown',
                     hospitalName: 'Vision Care Center'
+                },
+                prescription: {
+                    rightEye: {
+                        sph: '-3.00',
+                        cyl: '-0.75',
+                        axis: '165',
+                        va: '6/9',
+                        d: '-3.00',
+                        n: '-2.50',
+                        add: '+1.50',
+                        cl: '-3.00'
+                    },
+                    leftEye: {
+                        sph: '-2.75',
+                        cyl: '-0.50',
+                        axis: '170',
+                        va: '6/9',
+                        d: '-2.75',
+                        n: '-2.25',
+                        add: '+1.50',
+                        cl: '-2.75'
+                    },
+                    pd: {
+                        right: '31.5',
+                        left: '31.5',
+                        total: '63.0'
+                    },
+                    notes: 'Anti-glare coating recommended'
                 },
                 createdAt: new Date().toISOString()
             }
