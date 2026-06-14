@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Phone, Users } from 'lucide-react';
+import { User, Phone } from 'lucide-react';
 import type { Gender, AgeGroup } from '../../types';
 
 interface CustomerDetailsSectionProps {
@@ -118,6 +118,7 @@ export const CustomerDetailsSection: React.FC<CustomerDetailsSectionProps> = ({ 
                         <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
                         <input
                             type="tel"
+                            inputMode="tel"
                             value={formData.phoneNumber}
                             onChange={(e) => onChange('phoneNumber', e.target.value)}
                             placeholder="+1234567890"

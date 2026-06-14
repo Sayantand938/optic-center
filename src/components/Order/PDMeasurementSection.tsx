@@ -22,6 +22,8 @@ export const PDMeasurementSection: React.FC<PDMeasurementSectionProps> = ({ pd, 
                     </label>
                     <input
                         type="text"
+                        inputMode="decimal"
+                        pattern="[0-9]*"
                         value={pd.right}
                         onChange={(e) => onChange('right', e.target.value)}
                         placeholder="32.0"
@@ -35,6 +37,8 @@ export const PDMeasurementSection: React.FC<PDMeasurementSectionProps> = ({ pd, 
                     </label>
                     <input
                         type="text"
+                        inputMode="decimal"
+                        pattern="[0-9]*"
                         value={pd.left}
                         onChange={(e) => onChange('left', e.target.value)}
                         placeholder="32.0"
@@ -48,6 +52,8 @@ export const PDMeasurementSection: React.FC<PDMeasurementSectionProps> = ({ pd, 
                     </label>
                     <input
                         type="text"
+                        inputMode="decimal"
+                        pattern="[0-9]*"
                         value={pd.total}
                         onChange={(e) => onChange('total', e.target.value)}
                         placeholder="64.0"

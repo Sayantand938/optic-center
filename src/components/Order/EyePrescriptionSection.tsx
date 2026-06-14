@@ -26,14 +26,14 @@ export const EyePrescriptionSection: React.FC<EyePrescriptionSectionProps> = ({
     onNotesChange
 }) => {
     const prescriptionFields = [
-        { key: 'sph', label: 'SPH', icon: Ruler, placeholder: '-2.00' },
-        { key: 'cyl', label: 'CYL', icon: Target, placeholder: '-0.50' },
-        { key: 'axis', label: 'Axis', icon: Eye, placeholder: '180°' },
-        { key: 'va', label: 'VA', icon: EyeOff, placeholder: '6/6' },
-        { key: 'd', label: 'D', icon: ScanLine, placeholder: '-2.00' },
-        { key: 'n', label: 'N', icon: ScanLine, placeholder: '-1.50' },
-        { key: 'add', label: 'ADD', icon: Sparkles, placeholder: '+2.00' },
-        { key: 'cl', label: 'CL', icon: Droplet, placeholder: '-2.00' }
+        { key: 'sph', label: 'SPH', icon: Ruler, placeholder: '-2.00', inputMode: 'decimal' as const },
+        { key: 'cyl', label: 'CYL', icon: Target, placeholder: '-0.50', inputMode: 'decimal' as const },
+        { key: 'axis', label: 'Axis', icon: Eye, placeholder: '180', inputMode: 'numeric' as const },
+        { key: 'va', label: 'VA', icon: EyeOff, placeholder: '6/6', inputMode: 'text' as const },
+        { key: 'd', label: 'D', icon: ScanLine, placeholder: '-2.00', inputMode: 'decimal' as const },
+        { key: 'n', label: 'N', icon: ScanLine, placeholder: '-1.50', inputMode: 'decimal' as const },
+        { key: 'add', label: 'ADD', icon: Sparkles, placeholder: '+2.00', inputMode: 'decimal' as const },
+        { key: 'cl', label: 'CL', icon: Droplet, placeholder: '-2.00', inputMode: 'decimal' as const }
     ] as const;
 
     const renderEyeColumn = (
@@ -63,6 +63,7 @@ export const EyePrescriptionSection: React.FC<EyePrescriptionSectionProps> = ({
                                 </label>
                                 <input
                                     type="text"
+                                    inputMode={field.inputMode}
                                     value={eyeData[field.key]}
                                     onChange={(e) => onChange(field.key, e.target.value)}
                                     placeholder={field.placeholder}
