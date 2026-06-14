@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Receipt, Percent, DollarSign, Wallet, CreditCard } from 'lucide-react';
+import { Receipt, Percent, DollarSign, Wallet } from 'lucide-react';
 import type { BillDetails } from '../../types';
 
 interface BillDetailsSectionProps {

@@ -12,7 +12,7 @@ interface PendingOrdersScreenProps {
     onViewOrder?: (orderId: string) => void;
 }
 
-export const PendingOrdersScreen: React.FC<PendingOrdersScreenProps> = ({ onViewOrder }) => {
+export const PendingOrdersScreen: React.FC<PendingOrdersScreenProps> = ({  }) => {
     const { orders, updateOrder } = useOrderStore();
     const [pendingOrders, setPendingOrders] = useState<Order[]>([]);
     const [searchTerm, setSearchTerm] = useState('');

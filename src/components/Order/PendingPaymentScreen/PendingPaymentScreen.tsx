@@ -12,7 +12,7 @@ interface PendingPaymentScreenProps {
     onViewOrder?: (orderId: string) => void;
 }
 
-export const PendingPaymentScreen: React.FC<PendingPaymentScreenProps> = ({ onViewOrder }) => {
+export const PendingPaymentScreen: React.FC<PendingPaymentScreenProps> = ({  }) => {
     const { orders, updateOrder } = useOrderStore();
     const [pendingPaymentOrders, setPendingPaymentOrders] = useState<Order[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
