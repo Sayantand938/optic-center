@@ -4,20 +4,43 @@ import { OrderDetailsSection } from '../OrderDetailsSection';
 import { CustomerDetailsSection } from '../CustomerDetailsSection';
 import { OptometristDetailsSection } from '../OptometristDetailsSection';
 import { EyePrescriptionSection } from '../EyePrescriptionSection';
-import type { EyePrescription, PDMeasurements } from '../../../types';
+import { PurchaseDetailsSection } from '../PurchaseDetailsSection';
+import { BillDetailsSection } from '../BillDetailsSection';
+import type { EyePrescription, PDMeasurements, FrameItem, LensItem, BillDetails } from '../../../types';
 
 interface OrderFormProps {
     formData: any;
     isSubmitting: boolean;
     onSubmit: (e: React.FormEvent) => void;
     onReset: () => void;
+    // Order Details
     onOrderDetailsChange: (field: string, value: any) => void;
+    // Customer Details
     onCustomerChange: (field: string, value: any) => void;
+    // Optometrist Details
     onOptometristChange: (field: string, value: string) => void;
+    // Prescription
     onRightEyeChange: (field: keyof EyePrescription, value: string) => void;
     onLeftEyeChange: (field: keyof EyePrescription, value: string) => void;
     onPDChange: (field: keyof PDMeasurements, value: string) => void;
     onNotesChange: (notes: string) => void;
+    // Purchase
+    frames: FrameItem[];
+    lenses: LensItem[];
+    onAddFrame: () => void;
+    onAddLens: () => void;
+    onUpdateFrame: (id: string, field: keyof FrameItem, value: any) => void;
+    onUpdateLens: (id: string, field: keyof LensItem, value: any) => void;
+    onRemoveFrame: (id: string) => void;
+    onRemoveLens: (id: string) => void;
+    // Bill
+    bill: BillDetails;
+    framesTotal: number;
+    lensesTotal: number;
+    onDiscountChange: (value: number) => void;
+    onDiscountTypeChange: (type: 'percentage' | 'fixed') => void;
+    onAdvancePaymentChange: (value: number) => void;
+    onPaymentMethodChange: (method: 'cash' | 'card' | 'upi' | 'bank_transfer') => void;
 }
 
 export const OrderForm: React.FC<OrderFormProps> = ({
@@ -31,7 +54,22 @@ export const OrderForm: React.FC<OrderFormProps> = ({
     onRightEyeChange,
     onLeftEyeChange,
     onPDChange,
-    onNotesChange
+    onNotesChange,
+    frames,
+    lenses,
+    onAddFrame,
+    onAddLens,
+    onUpdateFrame,
+    onUpdateLens,
+    onRemoveFrame,
+    onRemoveLens,
+    bill,
+    framesTotal,
+    lensesTotal,
+    onDiscountChange,
+    onDiscountTypeChange,
+    onAdvancePaymentChange,
+    onPaymentMethodChange
 }) => {
     return (
         <form onSubmit={onSubmit} className="px-4 max-w-4xl mx-auto">
@@ -59,6 +97,27 @@ export const OrderForm: React.FC<OrderFormProps> = ({
                 onLeftEyeChange={onLeftEyeChange}
                 onPDChange={onPDChange}
                 onNotesChange={onNotesChange}
+            />
+
+            <PurchaseDetailsSection
+                frames={frames}
+                lenses={lenses}
+                onAddFrame={onAddFrame}
+                onAddLens={onAddLens}
+                onUpdateFrame={onUpdateFrame}
+                onUpdateLens={onUpdateLens}
+                onRemoveFrame={onRemoveFrame}
+                onRemoveLens={onRemoveLens}
+            />
+
+            <BillDetailsSection
+                bill={bill}
+                framesTotal={framesTotal}
+                lensesTotal={lensesTotal}
+                onDiscountChange={onDiscountChange}
+                onDiscountTypeChange={onDiscountTypeChange}
+                onAdvancePaymentChange={onAdvancePaymentChange}
+                onPaymentMethodChange={onPaymentMethodChange}
             />
 
             {/* Action Buttons */}

@@ -1,14 +1,11 @@
-import { useOrders } from '../useOrders';
-
 interface UseOrderSubmitProps {
     formData: any;
+    createOrder: () => any;
     onSuccess: () => void;
     onError: (error: Error) => void;
 }
 
-export const useOrderSubmit = ({ formData, onSuccess, onError }: UseOrderSubmitProps) => {
-    const { createOrder } = useOrders();
-
+export const useOrderSubmit = ({ formData, createOrder, onSuccess, onError }: UseOrderSubmitProps) => {
     const validateForm = (): boolean => {
         const { orderDetails, customer, optometrist } = formData;
 
@@ -44,13 +41,7 @@ export const useOrderSubmit = ({ formData, onSuccess, onError }: UseOrderSubmitP
         if (!validateForm()) return false;
 
         try {
-            const newOrder = createOrder({
-                orderDetails: formData.orderDetails,
-                customer: formData.customer,
-                optometrist: formData.optometrist,
-                prescription: formData.prescription
-            });
-
+            const newOrder = createOrder();
             onSuccess();
             console.log('Order created:', newOrder);
             return true;

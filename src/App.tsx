@@ -3,6 +3,8 @@ import { Header } from './components/Layout/Header';
 import { Sidebar } from './components/Layout/Sidebar';
 import { WelcomeScreen } from './components/UI/WelcomeScreen';
 import { NewOrderScreen } from './components/Order/NewOrderScreen';
+import { PendingOrdersScreen } from './components/Order/PendingOrdersScreen';
+import { PendingPaymentScreen } from './components/Order/PendingPaymentScreen';
 import { useMenu } from './hooks/useMenu';
 import { menuItems } from './constants/menuItems';
 
@@ -22,6 +24,10 @@ const App: React.FC = () => {
         return <WelcomeScreen />;
       case 'New Order':
         return <NewOrderScreen />;
+      case 'Pending Orders':
+        return <PendingOrdersScreen />;
+      case 'Pending Payment':
+        return <PendingPaymentScreen />;
       default:
         return (
           <main className="flex-1 flex items-center justify-center px-4 py-8" style={{ minHeight: 'calc(100vh - 56px)' }}>

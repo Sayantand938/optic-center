@@ -16,6 +16,8 @@ export const NewOrderScreen: React.FC<NewOrderScreenProps> = ({ onOrderCreated }
         setShowSuccess,
         isSubmitting,
         setIsSubmitting,
+        framesTotal,
+        lensesTotal,
         handleOrderDetailsChange,
         handleCustomerChange,
         handleOptometristChange,
@@ -23,18 +25,33 @@ export const NewOrderScreen: React.FC<NewOrderScreenProps> = ({ onOrderCreated }
         handleLeftEyeChange,
         handlePDChange,
         handleNotesChange,
-        resetForm
+        frames,
+        lenses,
+        handleAddFrame,
+        handleUpdateFrame,
+        handleRemoveFrame,
+        handleAddLens,
+        handleUpdateLens,
+        handleRemoveLens,
+        bill,
+        handleDiscountChange,
+        handleDiscountTypeChange,
+        handleAdvancePaymentChange,
+        handlePaymentMethodChange,
+        resetForm,
+        createOrder
     } = useOrderForm();
 
     const { submitOrder } = useOrderSubmit({
         formData,
+        createOrder,
         onSuccess: () => {
             setShowSuccess(true);
             resetForm();
             setTimeout(() => setShowSuccess(false), 3000);
             if (onOrderCreated) onOrderCreated();
         },
-        onError: (error) => {
+        onError: () => {
             alert('Failed to create order. Please try again.');
         }
     });
@@ -42,7 +59,7 @@ export const NewOrderScreen: React.FC<NewOrderScreenProps> = ({ onOrderCreated }
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        const success = await submitOrder();
+        await submitOrder();
         setIsSubmitting(false);
     };
 
@@ -69,6 +86,21 @@ export const NewOrderScreen: React.FC<NewOrderScreenProps> = ({ onOrderCreated }
                 onLeftEyeChange={handleLeftEyeChange}
                 onPDChange={handlePDChange}
                 onNotesChange={handleNotesChange}
+                frames={frames}
+                lenses={lenses}
+                onAddFrame={handleAddFrame}
+                onAddLens={handleAddLens}
+                onUpdateFrame={handleUpdateFrame}
+                onUpdateLens={handleUpdateLens}
+                onRemoveFrame={handleRemoveFrame}
+                onRemoveLens={handleRemoveLens}
+                bill={bill}
+                framesTotal={framesTotal}
+                lensesTotal={lensesTotal}
+                onDiscountChange={handleDiscountChange}
+                onDiscountTypeChange={handleDiscountTypeChange}
+                onAdvancePaymentChange={handleAdvancePaymentChange}
+                onPaymentMethodChange={handlePaymentMethodChange}
             />
         </div>
     );

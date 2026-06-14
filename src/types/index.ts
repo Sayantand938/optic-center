@@ -22,6 +22,49 @@ export interface PDMeasurements {
     total: string;    // Total PD
 }
 
+// Frame Types
+export type FrameType = '3-piece/rimless' | 'half-rimless/supra' | 'full-metal' | 'full-shell/plastic' | 'goggles';
+
+export interface FrameItem {
+    id: string;
+    type: FrameType;
+    modelName: string;
+    modelCode: string;
+    modelColor: string;
+    modelSize: string;
+    price: number;
+    quantity: number;
+}
+
+// Lens Types
+export type LensCategory = 'distance' | 'near' | 'bifocal' | 'progressive';
+export type LensMaterial = 'mineral' | 'plastic' | 'contact' | 'trivex' | 'organic' | 'polycarbonate';
+export type LensSide = 'both' | 'right' | 'left';
+
+export interface LensItem {
+    id: string;
+    category: LensCategory;
+    material: LensMaterial;
+    side: LensSide;
+    companyName: string;
+    productName: string;
+    index: string;
+    dia: string;
+    price: number;
+    quantity: number;
+}
+
+// Bill Details
+export interface BillDetails {
+    subtotal: number;
+    discount: number;
+    discountType: 'percentage' | 'fixed';
+    advancePayment: number;
+    paymentMethod: 'cash' | 'card' | 'upi' | 'bank_transfer';
+    finalAmount: number;
+    balanceDue: number;
+}
+
 export interface Order {
     id: string;
     orderDetails: {
@@ -47,6 +90,11 @@ export interface Order {
         pd: PDMeasurements;
         notes?: string;
     };
+    purchase: {
+        frames: FrameItem[];
+        lenses: LensItem[];
+    };
+    bill: BillDetails;
     createdAt: string;
 }
 
