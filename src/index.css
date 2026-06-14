@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "JetBrains Mono", "Courier New", monospace;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  letter-spacing: -0.01em;
+}
+
+/* Custom focus styles */
+@layer base {
+
+  input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
+    outline: none;
+    ring: 2px solid #3b82f6;
+    ring-offset: 2px;
+  }
+}
+
+/* Remove default blue highlight on mobile tap */
+input,
+textarea,
+select,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Fix for date input specific styling */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: #f3f4f6;
+}
